@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Bicycle</string>
 
-    <string name="child_health">صحة الطفل</string>
+    <string name="shoping">التسوق</string>
     <string name="children_behavior">سلوك الطفل</string>
     <string name="bussiness_account">حساب الأعمال</string>
     <string name="user_name">اسم المستخدم</string>

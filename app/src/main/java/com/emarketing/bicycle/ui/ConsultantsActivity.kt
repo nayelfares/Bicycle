@@ -6,13 +6,13 @@ import com.emarketing.bicycle.data.Doctor
 import com.emarketing.bicycle.mvvm.BaseActivity
 import com.emarketing.bicycle.vm.ConsultantsViewModel
 import com.emarketing.bicycle.vm.DoctorAdapter
-import kotlinx.android.synthetic.main.activity_articals.*
+import kotlinx.android.synthetic.main.activity_shoping.*
 
 class ConsultantsActivity : BaseActivity(),ConsultantsView {
     lateinit var consultantsViewModel: ConsultantsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_articals)
+        setContentView(R.layout.activity_shoping)
         toolbar.text=intent.getStringExtra("catName")
         getMore.setOnRefreshListener { getMore.setRefreshing(false) }
         consultantsViewModel= ConsultantsViewModel(this,this)

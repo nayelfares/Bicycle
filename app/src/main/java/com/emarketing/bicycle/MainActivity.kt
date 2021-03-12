@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.text.TextPaint
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.emarketing.bicycle.ui.ArticalsActivity
+import com.emarketing.bicycle.ui.ShopingActivity
 import com.emarketing.bicycle.ui.ConsultantsActivity
 import com.emarketing.bicycle.ui.ProfileDetails
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,19 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         val textShader: Shader = LinearGradient(
             0f, 0f, width, appName.textSize, intArrayOf(
-                Color.parseColor("#ee0979"),
-                Color.parseColor("#ff6a00")
+                Color.parseColor("#c2e59c"),
+                Color.parseColor("#64b3f4")
             ), null, Shader.TileMode.CLAMP
         )
         appName.paint.shader = textShader
-        childHealth.setOnClickListener {
-            val intent=Intent(this,ArticalsActivity::class.java)
-            intent.putExtra("catName",resources.getString(R.string.child_health))
+        shoping.setOnClickListener {
+            val intent=Intent(this,ShopingActivity::class.java)
+            intent.putExtra("catName",resources.getString(R.string.shoping))
             intent.putExtra("catId",2)
             startActivity(intent)
         }
         chilrenBehavior.setOnClickListener {
-            val intent=Intent(this,ArticalsActivity::class.java)
+            val intent=Intent(this,ShopingActivity::class.java)
             intent.putExtra("catName",resources.getString(R.string.children_behavior))
             intent.putExtra("catId",1)
             startActivity(intent)

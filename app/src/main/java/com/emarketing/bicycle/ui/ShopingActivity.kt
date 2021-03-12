@@ -5,21 +5,21 @@ import com.emarketing.bicycle.R
 import com.emarketing.bicycle.data.Article
 import com.emarketing.bicycle.mvvm.BaseActivity
 import com.emarketing.bicycle.vm.ArticleAdapter
-import com.emarketing.bicycle.vm.ArticalsViewModel
-import kotlinx.android.synthetic.main.activity_articals.*
+import com.emarketing.bicycle.vm.ShopingViewModel
+import kotlinx.android.synthetic.main.activity_shoping.*
 
-class ArticalsActivity : BaseActivity(),ArticalsView {
+class ShopingActivity : BaseActivity(),ShopingView {
     var catId=1
-    lateinit var articalsViewModel: ArticalsViewModel
+    lateinit var shopingViewModel: ShopingViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_articals)
+        setContentView(R.layout.activity_shoping)
         catId=intent.getIntExtra("catId",1)
         toolbar.text=intent.getStringExtra("catName")
         getMore.setOnRefreshListener { getMore.setRefreshing(false) }
-        articalsViewModel= ArticalsViewModel(this,this)
+        shopingViewModel= ShopingViewModel(this,this)
         loading()
-        articalsViewModel.getCategories(catId)
+        shopingViewModel.getCategories(catId)
     }
 
     override fun onFailer(message: String) {

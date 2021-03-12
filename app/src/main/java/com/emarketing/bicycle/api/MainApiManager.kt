@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 open class MainAPIManager {
     companion object  {
-         var BASE_URL: String = "https://zoho.towarddevelopment.org/api/"
+         var BASE_URL: String = "https://pike.towarddevelopment.org/api/"
     }
 
     fun provideRetrofitInterface(): Retrofit {
