@@ -17,3 +17,5 @@ data class Material(
 
 
 data class MaterialListResponse(val success:Boolean,val message:String,val data :ArrayList<Material>)
+
+data class MaterialResponse(val success:Boolean,val message:String,val data :Material)

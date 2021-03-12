@@ -90,4 +90,24 @@ interface RequestInterface {
         @Query("price") price:Float,
         @Query("id") id:Int
     ): Observable<Response>
+
+    @POST("update_materail")
+    @Multipart
+    fun editMaterial(
+        @Header("Authorization") authorization:String ,
+        @Query("id") material_id:Int,
+        @Part photo: MultipartBody.Part?=null,
+        @Query("name") name:String,
+        @Query("description") description:String,
+        @Query("price") price:Float
+    ): Observable<MaterialResponse>
+
+    @POST("update_materail")
+    fun editNoPhotoMaterial(
+        @Header("Authorization") authorization:String ,
+        @Query("id") material_id:Int,
+        @Query("name") name:String,
+        @Query("description") description:String,
+        @Query("price") price:Float
+    ): Observable<MaterialResponse>
 }

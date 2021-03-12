@@ -48,4 +48,6 @@
     <string name="edit_profile">Edit profile</string>
     <string name="materials">Materials</string>
     <string name="events">Events</string>
+    <string name="edit_material">Edit material</string>
+    <string name="edit">Edit</string>
 </resources>
