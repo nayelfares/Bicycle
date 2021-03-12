@@ -1,5 +1,6 @@
 package com.emarketing.bicycle.vm
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -38,7 +39,7 @@ class MaterialAdapter(val context:Context, val materials:ArrayList<Material>) : 
         holder.itemView.setOnClickListener {
             val intent= Intent(context,MaterialDetails::class.java)
             intent.putExtra("material",material)
-            context.startActivity(intent)
+            (context as Activity).startActivityForResult(intent,1001)
         }
     }
 

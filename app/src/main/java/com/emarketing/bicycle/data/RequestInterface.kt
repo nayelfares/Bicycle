@@ -110,4 +110,10 @@ interface RequestInterface {
         @Query("description") description:String,
         @Query("price") price:Float
     ): Observable<MaterialResponse>
+
+    @DELETE("material/{material_id}")
+    fun deleteMaterial(
+        @Header("Authorization") authorization:String,
+        @Path("material_id") material_id:Int,
+    ):Observable<Response>
 }

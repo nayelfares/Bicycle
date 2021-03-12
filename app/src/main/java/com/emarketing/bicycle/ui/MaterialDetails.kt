@@ -53,6 +53,11 @@ class MaterialDetails : BaseActivity(),MaterialView {
                 intent.putExtra("material",materialDetails)
                 startActivityForResult(intent,1000)
             }
+            delete.visibility= View.VISIBLE
+            delete.setOnClickListener {
+                loading()
+                materialViewModel.deleteMaterial(materialDetails.id)
+            }
         }
     }
 
@@ -70,6 +75,20 @@ class MaterialDetails : BaseActivity(),MaterialView {
     }
 
     override fun onFailed(message: String) {
+        showMessage(message)
+    }
+
+    override fun onDeleteSuccess(message: String) {
+        showMessage(message)
+        stopLoading()
+        val resultIntent = Intent()
+        resultIntent.putExtra("id", materialDetails.id)
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
+    }
+
+    override fun onDeleteFailed(message: String) {
+        stopLoading()
         showMessage(message)
     }
 }
