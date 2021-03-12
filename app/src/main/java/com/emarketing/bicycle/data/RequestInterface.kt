@@ -20,11 +20,7 @@ interface RequestInterface {
         @Query("password") password:String
     ): Observable<LoginResponse>
 
-    @GET("article/search")
-    fun getArticleList(
-        @Header("Authorization")  token:String,
-        @Query("category_id") categoryId:Int
-    ): Observable<ArticleResult>
+
 
     @POST("password/create")
     fun resetPassword(
@@ -72,4 +68,14 @@ interface RequestInterface {
         @Query("password") password:String?=null
     ): Observable<Response>
 
+    @GET("material")
+    fun getMaterialList(
+        @Header("Authorization")  token:String,
+    ): Observable<MaterialListResponse>
+
+    @GET("profile_get")
+    fun getUser(
+        @Header("Authorization")  token:String,
+        @Query("id") id:Int
+    ): Observable<UserResponse>
 }

@@ -40,4 +40,8 @@
     <string name="ok">نعم</string>
     <string name="no_change">لا تغيير</string>
     <string name="new_account">حساب جديد</string>
+    <string name="material_details">Material Details  :</string>
+    <string name="material_name">Material name  :</string>
+    <string name="price">Price :</string>
+    <string name="provided_by">Provided by</string>
 </resources>

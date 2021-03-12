@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Fullscreen">
         <activity android:name=".ui.ShopingActivity"/>
-        <activity android:name=".ui.ArticleDetails" />
+        <activity android:name=".ui.MaterialDetails" />
         <activity android:name=".ui.ConsultantsActivity" />
         <activity android:name=".ui.Register" />
         <activity android:name=".ui.DoctorDetails" />

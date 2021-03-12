@@ -2,9 +2,9 @@ package com.emarketing.bicycle.ui
 
 import android.os.Bundle
 import com.emarketing.bicycle.R
-import com.emarketing.bicycle.data.Article
+import com.emarketing.bicycle.data.Material
 import com.emarketing.bicycle.mvvm.BaseActivity
-import com.emarketing.bicycle.vm.ArticleAdapter
+import com.emarketing.bicycle.vm.MaterialAdapter
 import com.emarketing.bicycle.vm.ShopingViewModel
 import kotlinx.android.synthetic.main.activity_shoping.*
 
@@ -14,12 +14,10 @@ class ShopingActivity : BaseActivity(),ShopingView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shoping)
-        catId=intent.getIntExtra("catId",1)
-        toolbar.text=intent.getStringExtra("catName")
         getMore.setOnRefreshListener { getMore.setRefreshing(false) }
         shopingViewModel= ShopingViewModel(this,this)
         loading()
-        shopingViewModel.getCategories(catId)
+        shopingViewModel.getMaterialList()
     }
 
     override fun onFailer(message: String) {
@@ -27,9 +25,9 @@ class ShopingActivity : BaseActivity(),ShopingView {
         showMessage(message )
     }
 
-    override fun onSuccess(categories: ArrayList<Article>) {
+    override fun onSuccess(materials: ArrayList<Material>) {
         stopLoading()
-        content.adapter=ArticleAdapter(this,categories)
+        content.adapter=MaterialAdapter(this,materials)
     }
 
 }

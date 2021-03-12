@@ -81,9 +81,9 @@ class ProfileDetails : BaseActivity() ,ProfileView{
             .load(profile.photo.toUrl())
             .into(photo)
         username.setText(profile.name)
-        details.setText(profile.details)
+        details.setText(profile.address)
         email.setText(profile.email)
-        phone.setText(profile.mobile)
+        phone.setText(profile.phone)
         birthDate.setText(profile.dob)
     }
 

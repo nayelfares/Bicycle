@@ -5,9 +5,9 @@ data class Profile(
     val id:Int,
     val name:String,
     val photo:String,
-    val mobile:String,
+    val phone:String,
     val email:String,
-    val details:String?,
+    val address:String?,
     val dob:String
 )
 
