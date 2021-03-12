@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Bicycle</string>
     <string name="shoping">Shoping</string>
-    <string name="children_behavior">Children behavior</string>
-    <string name="bussiness_account">Business Account</string>
     <string name="user_name">User Name  :</string>
     <string name="type_valid_username">type valid username</string>
     <string name="phone_number">Phone Number</string>
@@ -13,19 +11,15 @@
     <string name="password_hint">**********</string>
     <string name="register">Register</string>
     <string name="cancel">Cancel</string>
-    <string name="consultants">Consultants</string>
     <string name="address">Address  :</string>
     <string name="email">Email address :</string>
     <string name="phone">Phone number :</string>
-    <string name="whatsapp">Whatsapp :</string>
     <string name="login_info">Login info</string>
     <string name="login">Login</string>
     <string name="forgit_password">Forgit password ?</string>
     <string name="or">or</string>
     <string name="reset_password">Reset your password</string>
     <string name="reset">Reset</string>
-    <string name="read_more"><![CDATA[Read more >>>]]></string>
-    <string name="specialization">Specialization</string>
     <string name="submit">Submit rating</string>
     <string name="check_intenet_connection">Check your internet connection</string>
     <string name="do_you_want_to_close_app">Do you want to close app?</string>

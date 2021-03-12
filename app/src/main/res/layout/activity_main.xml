@@ -73,28 +73,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:textAllCaps="false"
-        android:text="@string/children_behavior"
+        android:text="@string/events"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:id="@+id/chilrenBehavior"
+        android:id="@+id/events"
         android:background="@drawable/button_gradient"
         android:layout_marginTop="16dp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/chilrenBehavior"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:textAllCaps="false"
-        android:text="@string/consultants"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:id="@+id/consultants"
-        android:background="@drawable/button_gradient"
-        android:layout_marginTop="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

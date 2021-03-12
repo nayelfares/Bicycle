@@ -36,9 +36,9 @@ class ShopingActivity : BaseActivity(),ShopingView {
         showMessage(message )
     }
 
-    override fun onSuccess(materials: ArrayList<Material>) {
+    override fun onSuccess(categories: ArrayList<Material>) {
         stopLoading()
-        content.adapter=MaterialAdapter(this,materials)
+        content.adapter=MaterialAdapter(this,categories)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -48,7 +48,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/events"
+                android:id="@+id/event"
                 android:background="@drawable/button_gradient"
                 android:textColor="@android:color/white"
                 android:text="@string/events"
