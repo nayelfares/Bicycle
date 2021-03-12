@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Fullscreen">
-        <activity android:name=".ui.EditMaterial"></activity>
+        <activity android:name=".ui.EventsActivity"></activity>
+        <activity android:name=".ui.EditMaterial" />
         <activity android:name=".ui.ShopingActivity" />
         <activity android:name=".ui.MaterialDetails" />
         <activity android:name=".ui.AddMaterialActivity" />

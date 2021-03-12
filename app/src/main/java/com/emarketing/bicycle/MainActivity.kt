@@ -12,6 +12,7 @@ import android.view.Window
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.emarketing.bicycle.mvvm.BaseActivity
+import com.emarketing.bicycle.ui.EventsActivity
 import com.emarketing.bicycle.ui.ShopingActivity
 import com.emarketing.bicycle.ui.ProfileDetails
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,9 +40,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         events.setOnClickListener {
-            val intent=Intent(this,ShopingActivity::class.java)
-            intent.putExtra("catName",resources.getString(R.string.events))
-            intent.putExtra("catId",1)
+            val intent=Intent(this,EventsActivity::class.java)
             startActivity(intent)
         }
         profile.setOnClickListener {

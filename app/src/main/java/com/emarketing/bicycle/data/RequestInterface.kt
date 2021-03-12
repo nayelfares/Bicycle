@@ -108,4 +108,10 @@ interface RequestInterface {
         @Header("Authorization") authorization:String,
         @Path("material_id") material_id:Int,
     ):Observable<Response>
+
+    @GET("event")
+    fun getEventList(
+        @Header("Authorization")  token:String,
+        @Query("id") id:String?
+    ): Observable<EventListResponse>
 }
