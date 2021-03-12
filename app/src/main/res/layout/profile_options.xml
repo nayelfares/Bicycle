@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewComment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancelOptions"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editeProfile"
+                android:background="@drawable/button_gradient"
+                android:textColor="@android:color/white"
+                android:text="@string/edit_profile"
+                android:textAllCaps="false"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:id="@+id/sep1"
+                android:background="@color/white" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/materials"
+                android:background="@drawable/button_gradient"
+                android:textColor="@android:color/white"
+                android:text="@string/materials"
+                android:textAllCaps="false"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:id="@+id/sep2"
+                android:background="@color/white" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/events"
+                android:background="@drawable/button_gradient"
+                android:textColor="@android:color/white"
+                android:text="@string/events"
+                android:textAllCaps="false"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelOptions"
+        android:background="@drawable/button_gradient"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/cancel"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

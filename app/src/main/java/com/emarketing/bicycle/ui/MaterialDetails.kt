@@ -45,6 +45,6 @@ class MaterialDetails : BaseActivity(),MaterialView {
     }
 
     override fun onFailed(message: String) {
-        TODO("Not yet implemented")
+        showMessage(message)
     }
 }

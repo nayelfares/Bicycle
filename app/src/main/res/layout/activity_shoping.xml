@@ -38,10 +38,9 @@
         android:layout_height="match_parent"
         android:id="@+id/getMore"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -60,7 +59,21 @@
                 android:id="@+id/content"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-        </LinearLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"
+                app:fabSize="auto"
+                android:id="@+id/add"
+                app:borderWidth="2dp"
+                app:backgroundTint="@color/grey"
+                android:backgroundTint="@color/transparent"
+                android:src="@mipmap/add"
+                android:layout_margin="24dp"
+                android:contentDescription="@string/new_material"/>
+        </RelativeLayout>
     </com.dinuscxj.refresh.RecyclerRefreshLayout>
 
 

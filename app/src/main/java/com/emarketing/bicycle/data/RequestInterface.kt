@@ -71,6 +71,7 @@ interface RequestInterface {
     @GET("material")
     fun getMaterialList(
         @Header("Authorization")  token:String,
+        @Query("id") id:String?
     ): Observable<MaterialListResponse>
 
     @GET("profile_get")
@@ -78,4 +79,15 @@ interface RequestInterface {
         @Header("Authorization")  token:String,
         @Query("id") id:Int
     ): Observable<UserResponse>
+
+    @POST("material")
+    @Multipart
+    fun addMaterial(
+        @Header("Authorization") authorization:String ,
+        @Part photo: MultipartBody.Part,
+        @Query("name") name:String,
+        @Query("description") description:String,
+        @Query("price") price:Float,
+        @Query("id") id:Int
+    ): Observable<Response>
 }

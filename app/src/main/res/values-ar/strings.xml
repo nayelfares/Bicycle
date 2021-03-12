@@ -44,4 +44,10 @@
     <string name="material_name">Material name  :</string>
     <string name="price">Price :</string>
     <string name="provided_by">Provided by</string>
+    <string name="material_photo">Material Photo</string>
+    <string name="add_material_photo">Add material photo</string>
+    <string name="new_material">New material</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="materials">Materials</string>
+    <string name="events">Events</string>
 </resources>

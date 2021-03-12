@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:src="@mipmap/profile"
         android:padding="12dp"
-        android:id="@+id/editProfile"
+        android:id="@+id/profile"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

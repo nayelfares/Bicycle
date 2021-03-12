@@ -13,9 +13,9 @@ import io.reactivex.schedulers.Schedulers
 
 class ShopingViewModel(val shopingView: ShopingView, val context: Context) {
 
-    fun getMaterialList(){
+    fun getMaterialList(user_id:String?){
         val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
-        val registerVar  = apiManager.getMaterialList(BaseActivity.token)
+        val registerVar  = apiManager.getMaterialList(BaseActivity.token,user_id)
         registerVar.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<MaterialListResponse> {
