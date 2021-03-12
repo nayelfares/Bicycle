@@ -8,6 +8,7 @@ import com.emarketing.bicycle.R
 
 abstract class BaseActivity: AppCompatActivity() {
     companion object{
+        var isAdmin =false
         var id: Int = 0
         var token=""
     }

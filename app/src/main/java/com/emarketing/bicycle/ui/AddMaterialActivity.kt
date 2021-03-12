@@ -58,6 +58,8 @@ class AddMaterialActivity : BaseActivity(),AddMaterialView {
     override fun onSuccess(message: String) {
         stopLoading()
         showMessage(message )
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

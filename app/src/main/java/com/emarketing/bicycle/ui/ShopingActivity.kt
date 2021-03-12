@@ -27,7 +27,7 @@ class ShopingActivity : BaseActivity(),ShopingView {
         loading()
         shopingViewModel.getMaterialList(user_id)
         add.setOnClickListener {
-            startActivity(Intent(this,AddMaterialActivity::class.java))
+            startActivityForResult(Intent(this,AddMaterialActivity::class.java),1001)
         }
     }
 

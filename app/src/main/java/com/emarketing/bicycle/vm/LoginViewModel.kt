@@ -23,7 +23,7 @@ class LoginViewModel(val loginView: LoginView, val context: Context) {
                 override fun onSubscribe(d: Disposable) { }
                 override fun onNext(t: LoginResponse) {
                     if (t.success!=false)
-                        loginView.loginSuccess(t.data.token,t.data.id)
+                        loginView.loginSuccess(t.data.token,t.data.id,t.data.is_admin)
                     else
                         loginView.loginFailed(t.message)
                 }

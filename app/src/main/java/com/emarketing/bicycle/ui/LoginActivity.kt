@@ -42,10 +42,11 @@ class LoginActivity : BaseActivity(),LoginView {
 
     }
 
-    override fun loginSuccess(token: String,id:Int) {
+    override fun loginSuccess(token: String,id:Int,isAdmin:Boolean) {
         stopLoading()
         BaseActivity.token="Bearer $token"
         BaseActivity.id=id
+        BaseActivity.isAdmin = isAdmin
         startActivity(Intent(this,MainActivity::class.java))
         finish()
     }

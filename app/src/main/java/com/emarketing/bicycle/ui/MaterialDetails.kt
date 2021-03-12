@@ -46,13 +46,15 @@ class MaterialDetails : BaseActivity(),MaterialView {
         phone.text    = profile.phone
         address.text  = profile.address
 
-        if (profile.id==BaseActivity.id){
-            edit.visibility= View.VISIBLE
+        if (profile.id==BaseActivity.id) {
+            edit.visibility = View.VISIBLE
             edit.setOnClickListener {
-                val intent= Intent(this,EditMaterial::class.java)
-                intent.putExtra("material",materialDetails)
-                startActivityForResult(intent,1000)
+                val intent = Intent(this, EditMaterial::class.java)
+                intent.putExtra("material", materialDetails)
+                startActivityForResult(intent, 1000)
             }
+        }
+        if (profile.id==id|| isAdmin) {
             delete.visibility= View.VISIBLE
             delete.setOnClickListener {
                 loading()
