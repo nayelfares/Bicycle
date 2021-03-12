@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bicycle</string>
+
+    <string name="child_health">صحة الطفل</string>
+    <string name="children_behavior">سلوك الطفل</string>
+    <string name="bussiness_account">حساب الأعمال</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="type_valid_username">اكتب اسم مستخدم صالح</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="xxxxxxxxxx">XXXXXXXX</string>
+    <string name="password_hint">********</string>
+    <string name="email_hint">email@example.com</string>
+    <string name="password">كلمة السر</string>
+    <string name="email_address">عنوان البريد الالكتروني</string>
+    <string name="register">أنشاء حساب جديد</string>
+    <string name="cancel">إلغاء</string>
+    <string name="consultants">استشاريين</string>
+    <string name="address">العنوان  :</string>
+    <string name="email">البريد الالكتروني :</string>
+    <string name="phone">رقم الهاتف :</string>
+    <string name="whatsapp">واتساب :</string>
+    <string name="login_info">معلومات الدخول</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="forgit_password">نسيت كلمة السر؟</string>
+    <string name="or"> أو </string>
+    <string name="reset_password">إعادة تعيين كلمة السر</string>
+    <string name="reset">إعادة</string>
+    <string name="read_more"><![CDATA[المزيد >>>]]></string>
+    <string name="specialization">التخصص  :</string>
+    <string name="submit">إرسال التقييم</string>
+    <string name="check_intenet_connection">تحقق من اتصالك بالانترنت</string>
+    <string name="do_you_want_to_close_app">هل تريد اغلاق التطبيق?</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="profile_details">تفاصيل الحساب</string>
+    <string name="details">التفاصيل   :</string>
+    <string name="submit_profile">تأكيد</string>
+    <string name="birth_date">تاريخ الميلاد :</string>
+    <string name="ok">نعم</string>
+    <string name="no_change">لا تغيير</string>
+    <string name="new_account">حساب جديد</string>
+</resources>

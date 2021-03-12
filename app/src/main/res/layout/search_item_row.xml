@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:src="@color/black"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:id="@+id/image"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="forest result"
+        android:layout_toEndOf="@+id/image"
+        android:layout_marginTop="8dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dubai"
+        android:textAlignment="viewStart"
+        android:layout_toEndOf="@+id/image"
+        android:layout_below="@id/name"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/city"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="asef awef aw e f we f a we f awe f  we fd w e f"
+        android:layout_toEndOf="@+id/image"
+        android:textAlignment="viewStart"
+        android:layout_below="@id/city"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:textColor="#444444"
+        android:id="@+id/description"/>
+</RelativeLayout>
