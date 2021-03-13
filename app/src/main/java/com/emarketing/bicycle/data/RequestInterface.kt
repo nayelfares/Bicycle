@@ -114,4 +114,15 @@ interface RequestInterface {
         @Header("Authorization")  token:String,
         @Query("id") id:String?
     ): Observable<EventListResponse>
+
+    @POST("event")
+    fun addEvent(
+        @Header("Authorization") authorization:String ,
+        @Query("name") name:String,
+        @Query("start_date") start_date:String,
+        @Query("end_date") end_date:String,
+        @Query("description") description:String,
+        @Query("number_members") number_members:Int,
+        @Query("user_id") id:Int
+    ): Observable<Response>
 }

@@ -1,5 +1,7 @@
 package com.emarketing.bicycle.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.emarketing.bicycle.R
 import com.emarketing.bicycle.data.Event
@@ -22,6 +24,9 @@ class EventsActivity : BaseActivity(),EventsView {
         doAsync {
             eventsViewModel.getEventList(userId)
         }
+        add.setOnClickListener {
+            startActivityForResult(Intent(this,CreateEvent::class.java),1002)
+        }
     }
 
     override fun onSuccess(events: ArrayList<Event>) {
@@ -32,5 +37,13 @@ class EventsActivity : BaseActivity(),EventsView {
     override fun onFailer(message: String) {
         stopLoading()
         showMessage(message)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode==1002 && resultCode== Activity.RESULT_OK){
+            loading()
+            eventsViewModel.getEventList(userId)
+        }
     }
 }
