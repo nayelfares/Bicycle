@@ -27,13 +27,6 @@ interface RequestInterface {
         @Query("email") email:String
     ): Observable<Response>
 
-    @POST("doctor/rating/add")
-    fun rate(
-        @Header("Authorization")  token:String,
-        @Query("doctor_id") doctor_id:Int,
-        @Query("value") value:Int,
-        @Query("user_id") user_id:Int
-    ): Observable<Response>
 
     @GET("user-profile_get")
     fun getProfile(
