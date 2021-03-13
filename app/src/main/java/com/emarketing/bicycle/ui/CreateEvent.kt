@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.Window
 import com.emarketing.bicycle.R
+import com.emarketing.bicycle.data.Event
+import com.emarketing.bicycle.data.Material
 import com.emarketing.bicycle.mvvm.BaseActivity
 import com.emarketing.bicycle.vm.CreateEventViewModel
 import kotlinx.android.synthetic.main.activity_create_event.*
@@ -16,14 +18,25 @@ import kotlinx.android.synthetic.main.pick_time.*
 
 class CreateEvent : BaseActivity() ,CreateEventView{
     lateinit var createEventViewModel: CreateEventViewModel
+    var currentEvent:Event?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_event)
+        currentEvent =intent.getParcelableExtra<Event>("event")
         createEventViewModel= CreateEventViewModel(this,this)
         events()
     }
 
     fun events(){
+        if (currentEvent!=null){
+            eventName.setText(currentEvent!!.name)
+            participants.setText(currentEvent!!.number_members)
+            startDate.setText(currentEvent!!.start_date.substring(0,10))
+            startTime.setText(currentEvent!!.start_date.substring(11))
+            endDate.setText(currentEvent!!.end_date.substring(0,10))
+            endTime.setText(currentEvent!!.end_date.substring(11))
+            description.setText(currentEvent!!.description)
+        }
         startDate.setOnTouchListener { v, event ->
             when (event?.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -74,7 +87,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
                         var minutes=dialog.timePicker.minute.toString()
                         if (minutes.length==1)
                             minutes="0$minutes"
-                        val startTimeString="$hours-$minutes-00"
+                        val startTimeString="$hours:$minutes:00"
                         startTime.setText(startTimeString)
                         dialog.dismiss()
                     }
@@ -137,7 +150,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
                         var minutes=dialog.timePicker.minute.toString()
                         if (minutes.length==1)
                             minutes="0$minutes"
-                        val startTimeString="$hours-$minutes-00"
+                        val startTimeString="$hours:$minutes:00"
                         endTime.setText(startTimeString)
                         dialog.dismiss()
                     }
@@ -152,13 +165,23 @@ class CreateEvent : BaseActivity() ,CreateEventView{
         }
         create.setOnClickListener {
             loading()
-            createEventViewModel.addEvent(
-                eventName.text.toString(),
-                startDate.text.toString()+" "+startTime.text.toString(),
-                endDate.text.toString()+" "+endTime.text.toString(),
-                description.text.toString(),
-                participants.text.toString().toInt(),
-            )
+            if (currentEvent==null)
+                createEventViewModel.addEvent(
+                    eventName.text.toString(),
+                    startDate.text.toString()+" "+startTime.text.toString(),
+                    endDate.text.toString()+" "+endTime.text.toString(),
+                    description.text.toString(),
+                    participants.text.toString().toInt(),
+                )
+            else
+                createEventViewModel.updateEvent(
+                    currentEvent!!.id.toString(),
+                    eventName.text.toString(),
+                    startDate.text.toString()+" "+startTime.text.toString(),
+                    endDate.text.toString()+" "+endTime.text.toString(),
+                    description.text.toString(),
+                    participants.text.toString().toInt(),
+                )
         }
     }
 

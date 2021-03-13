@@ -18,7 +18,7 @@ class EventsActivity : BaseActivity(),EventsView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_events)
-        userId=intent.getStringExtra("id")
+        userId=intent.getStringExtra("user_id")
         eventsViewModel= EventsViewModel(this,this)
         loading()
         doAsync {

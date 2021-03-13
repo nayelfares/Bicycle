@@ -61,7 +61,10 @@ class MainActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.event.setOnClickListener {
-
+                val intent=Intent(this,EventsActivity::class.java)
+                intent.putExtra("user_id",BaseActivity.id.toString())
+                startActivity(intent)
+                dialog.dismiss()
             }
             val window: Window = dialog.window!!
             window.setLayout(

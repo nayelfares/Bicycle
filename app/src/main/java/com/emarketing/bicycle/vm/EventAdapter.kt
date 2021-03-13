@@ -1,13 +1,24 @@
 package com.emarketing.bicycle.vm
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.emarketing.bicycle.R
+import com.emarketing.bicycle.api.MainAPIManager
 import com.emarketing.bicycle.data.Event
+import com.emarketing.bicycle.data.RequestInterface
+import com.emarketing.bicycle.data.Response
 import com.emarketing.bicycle.mvvm.BaseActivity
+import com.emarketing.bicycle.ui.CreateEvent
+import com.emarketing.bicycle.ui.EditMaterial
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.event_row.view.*
 
 
@@ -37,7 +48,17 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
                 else
                     delete.visibility=View.GONE
             }
+            edit.setOnClickListener {
+                val intent = Intent(context, CreateEvent::class.java)
+                intent.putExtra("event", event)
+                (context as Activity).startActivityForResult(intent, 1002)
+            }
+            delete.setOnClickListener {
+                (context as BaseActivity).loading()
+                delete(event.id.toString(),holder,position)
+            }
         }
+
     }
 
     // total number of rows
@@ -55,5 +76,28 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
         val edit=itemView.edit
         val delete =itemView.delete
         val join =itemView.join
+    }
+    fun delete(eventId:String,holder: ViewHolder,position: Int){
+        val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
+        val registerVar  = apiManager.deleteEvent(BaseActivity.token,eventId)
+        registerVar.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<Response> {
+                override fun onComplete() { }
+                override fun onSubscribe(d: Disposable) { }
+                override fun onNext(t: Response) {
+                    if (t.success){
+                        (context as BaseActivity).stopLoading()
+                        (context as BaseActivity).showMessage(t.message)
+                        materials.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyDataSetChanged()
+                    }
+                }
+                override fun onError(e: Throwable) {
+                    (context as BaseActivity).stopLoading()
+                    (context as BaseActivity).showMessage(e.message.toString())
+                }
+            })
     }
 }

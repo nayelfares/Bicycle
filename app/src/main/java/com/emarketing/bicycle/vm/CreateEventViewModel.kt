@@ -32,4 +32,24 @@ class CreateEventViewModel(val createEventView: CreateEventView , val context: C
                 }
             })
     }
+
+    fun updateEvent(eventId:String,name:String,startDate:String,endDate:String,description:String,member_number:Int,){
+        val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
+        val registerVar  = apiManager.updateEvent(
+            BaseActivity.token,eventId,name,startDate,endDate,
+            description,member_number
+        )
+        registerVar.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<Response> {
+                override fun onComplete() { }
+                override fun onSubscribe(d: Disposable) { }
+                override fun onNext(t: Response) {
+                    createEventView.onSuccess(t.message)
+                }
+                override fun onError(e: Throwable) {
+                    createEventView.onFailer(e.message.toString())
+                }
+            })
+    }
 }

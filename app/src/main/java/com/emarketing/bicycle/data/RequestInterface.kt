@@ -125,4 +125,21 @@ interface RequestInterface {
         @Query("number_members") number_members:Int,
         @Query("user_id") id:Int
     ): Observable<Response>
+
+    @PUT("event/{id}")
+    fun updateEvent(
+        @Header("Authorization") authorization:String ,
+        @Path("id") id:String,
+        @Query("name") name:String,
+        @Query("start_date") start_date:String,
+        @Query("end_date") end_date:String,
+        @Query("description") description:String,
+        @Query("number_members") number_members:Int
+    ): Observable<Response>
+
+    @DELETE("event/{id}")
+    fun deleteEvent(
+        @Header("Authorization") authorization:String ,
+        @Path("id") id:String
+    ): Observable<Response>
 }
