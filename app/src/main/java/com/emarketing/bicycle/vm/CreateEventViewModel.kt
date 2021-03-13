@@ -13,11 +13,11 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class CreateEventViewModel(val createEventView: CreateEventView , val context: Context) {
-    fun addEvent(name:String,startDate:String,endDate:String,description:String,member_number:Int,){
+    fun addEvent(name:String,startDate:String,endDate:String,description:String,objectives:String,member_number:Int,){
         val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
         val registerVar  = apiManager.addEvent(
             BaseActivity.token,name,startDate,endDate,
-            description,member_number,BaseActivity.id
+            description,objectives,member_number,BaseActivity.id
         )
         registerVar.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -33,11 +33,11 @@ class CreateEventViewModel(val createEventView: CreateEventView , val context: C
             })
     }
 
-    fun updateEvent(eventId:String,name:String,startDate:String,endDate:String,description:String,member_number:Int,){
+    fun updateEvent(eventId:String,name:String,startDate:String,endDate:String,description:String,objectives:String,member_number:Int){
         val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
         val registerVar  = apiManager.updateEvent(
             BaseActivity.token,eventId,name,startDate,endDate,
-            description,member_number
+            description,objectives,member_number
         )
         registerVar.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

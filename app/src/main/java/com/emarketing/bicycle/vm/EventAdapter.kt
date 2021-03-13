@@ -37,6 +37,7 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
             members.text=event.number_members
             startDate.text=event.start_date
             endDate.text =event.end_date
+            objectives.text = event.objectives
             if (event.user_id.toInt()==BaseActivity.id){
                 edit.visibility=View.VISIBLE
                 delete.visibility=View.VISIBLE
@@ -76,6 +77,7 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
         val edit=itemView.edit
         val delete =itemView.delete
         val join =itemView.join
+        val objectives =itemView.objectives
     }
     fun delete(eventId:String,holder: ViewHolder,position: Int){
         val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)

@@ -36,6 +36,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
             endDate.setText(currentEvent!!.end_date.substring(0,10))
             endTime.setText(currentEvent!!.end_date.substring(11))
             description.setText(currentEvent!!.description)
+            objectives.setText(currentEvent!!.objectives)
         }
         startDate.setOnTouchListener { v, event ->
             when (event?.action) {
@@ -171,6 +172,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
                     startDate.text.toString()+" "+startTime.text.toString(),
                     endDate.text.toString()+" "+endTime.text.toString(),
                     description.text.toString(),
+                    objectives.text.toString(),
                     participants.text.toString().toInt(),
                 )
             else
@@ -180,6 +182,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
                     startDate.text.toString()+" "+startTime.text.toString(),
                     endDate.text.toString()+" "+endTime.text.toString(),
                     description.text.toString(),
+                    objectives.text.toString(),
                     participants.text.toString().toInt(),
                 )
         }

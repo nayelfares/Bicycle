@@ -122,6 +122,7 @@ interface RequestInterface {
         @Query("start_date") start_date:String,
         @Query("end_date") end_date:String,
         @Query("description") description:String,
+        @Query("objectives") objectives:String,
         @Query("number_members") number_members:Int,
         @Query("user_id") id:Int
     ): Observable<Response>
@@ -134,6 +135,7 @@ interface RequestInterface {
         @Query("start_date") start_date:String,
         @Query("end_date") end_date:String,
         @Query("description") description:String,
+        @Query("objectives") objectives:String,
         @Query("number_members") number_members:Int
     ): Observable<Response>
 

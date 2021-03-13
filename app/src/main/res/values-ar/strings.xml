@@ -59,4 +59,5 @@
     <string name="start_time">Start time :</string>
     <string name="end_time">End time :</string>
     <string name="description">Descrition :</string>
+    <string name="objectives">Objectives</string>
 </resources>
