@@ -28,6 +28,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
     }
 
     fun events(){
+
         if (currentEvent!=null){
             eventName.setText(currentEvent!!.name)
             participants.setText(currentEvent!!.number_members)

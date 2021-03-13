@@ -1,5 +1,6 @@
 package com.emarketing.bicycle.vm
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -29,6 +30,7 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
         return view
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = materials[position]
         with(holder){
@@ -58,6 +60,20 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
                 (context as BaseActivity).loading()
                 delete(event.id.toString(),holder,position)
             }
+            if (event.is_joined){
+                join.setText(R.string.un_join)
+                join.setOnClickListener {
+                    (context as BaseActivity).loading()
+                    join(false,event.id.toString(),holder,position)
+                }
+            }else{
+                join.setText(R.string.join)
+                join.setOnClickListener {
+                    (context as BaseActivity).loading()
+                    join(true,event.id.toString(),holder,position)
+                }
+            }
+
         }
 
     }
@@ -95,6 +111,29 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
                         notifyItemRemoved(position)
                         notifyDataSetChanged()
                     }
+                }
+                override fun onError(e: Throwable) {
+                    (context as BaseActivity).stopLoading()
+                    (context as BaseActivity).showMessage(e.message.toString())
+                }
+            })
+    }
+    fun join(join_unjoin:Boolean,eventId:String,holder: ViewHolder,position: Int){
+        val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
+        val registerVar  = apiManager.joinEvent(BaseActivity.token,eventId,join_unjoin,BaseActivity.id.toString())
+        registerVar.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<Response> {
+                override fun onComplete() { }
+                override fun onSubscribe(d: Disposable) { }
+                override fun onNext(t: Response) {
+                  //  if (t.success){
+                        (context as BaseActivity).stopLoading()
+                       // (context as BaseActivity).showMessage(t.message)
+                        materials[position].is_joined=join_unjoin
+                        notifyItemChanged(position)
+                        notifyDataSetChanged()
+                 //   }
                 }
                 override fun onError(e: Throwable) {
                     (context as BaseActivity).stopLoading()

@@ -8,7 +8,9 @@ import com.emarketing.bicycle.data.Event
 import com.emarketing.bicycle.mvvm.BaseActivity
 import com.emarketing.bicycle.vm.EventAdapter
 import com.emarketing.bicycle.vm.EventsViewModel
-import kotlinx.android.synthetic.main.activity_events.*
+import kotlinx.android.synthetic.main.activity_events.add
+import kotlinx.android.synthetic.main.activity_events.content
+import kotlinx.android.synthetic.main.activity_events.getMore
 import org.jetbrains.anko.doAsync
 import java.util.ArrayList
 
@@ -26,6 +28,11 @@ class EventsActivity : BaseActivity(),EventsView {
         }
         add.setOnClickListener {
             startActivityForResult(Intent(this,CreateEvent::class.java),1002)
+        }
+        getMore.setOnRefreshListener {
+            getMore.setRefreshing(false)
+            loading()
+            eventsViewModel.getEventList(userId)
         }
     }
 

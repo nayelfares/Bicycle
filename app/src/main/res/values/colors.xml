@@ -9,4 +9,5 @@
     <color name="grey">#4285F4</color>
     <color name="transparent">#ffffffff</color>
     <color name="dropDownColor">#eeeeee</color>
+    <color name="greysh">#cccccc</color>
 </resources>

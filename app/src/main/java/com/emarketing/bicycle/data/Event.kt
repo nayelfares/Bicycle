@@ -13,7 +13,8 @@ data class Event (
     val start_date:String,
     val end_date:String,
     val number_members:String,
-    val user_id:String
+    val user_id:String,
+    var is_joined:Boolean
 ): Parcelable
 
 data class EventListResponse(val success:Boolean,val message:String,val data : ArrayList<Event>)

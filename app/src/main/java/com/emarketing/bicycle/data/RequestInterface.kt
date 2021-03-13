@@ -144,4 +144,12 @@ interface RequestInterface {
         @Header("Authorization") authorization:String ,
         @Path("id") id:String
     ): Observable<Response>
+
+    @POST("join")
+    fun joinEvent(
+        @Header("Authorization") authorization:String ,
+        @Query("event_id") event_id:String,
+        @Query("join") join:Boolean,
+        @Query("user_id") user_id:String,
+    ): Observable<Response>
 }
