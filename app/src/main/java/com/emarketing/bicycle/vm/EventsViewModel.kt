@@ -16,7 +16,7 @@ import io.reactivex.schedulers.Schedulers
 class EventsViewModel(val eventsView: EventsView,val context: Context) {
     fun getEventList(user_id:String?){
         val apiManager= MainAPIManager().provideRetrofitInterface().create(RequestInterface::class.java)
-        val registerVar  = apiManager.getEventList(BaseActivity.token,user_id)
+        val registerVar  = apiManager.getEventList(BaseActivity.token,user_id,BaseActivity.id.toString())
         registerVar.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<EventListResponse> {

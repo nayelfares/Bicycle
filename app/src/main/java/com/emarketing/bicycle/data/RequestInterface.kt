@@ -105,7 +105,8 @@ interface RequestInterface {
     @GET("event")
     fun getEventList(
         @Header("Authorization")  token:String,
-        @Query("id") id:String?
+        @Query("profile_id") profile_id:String?,
+        @Query("id") id:String
     ): Observable<EventListResponse>
 
     @POST("event")

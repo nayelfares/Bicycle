@@ -31,7 +31,7 @@ class CreateEvent : BaseActivity() ,CreateEventView{
 
         if (currentEvent!=null){
             eventName.setText(currentEvent!!.name)
-            participants.setText(currentEvent!!.number_members)
+            participants.setText(currentEvent!!.number_members.toString())
             startDate.setText(currentEvent!!.start_date.substring(0,10))
             startTime.setText(currentEvent!!.start_date.substring(11))
             endDate.setText(currentEvent!!.end_date.substring(0,10))

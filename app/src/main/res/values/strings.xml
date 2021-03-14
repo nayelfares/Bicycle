@@ -59,4 +59,5 @@
     <string name="description">Descrition :</string>
     <string name="objectives">Objectives</string>
     <string name="un_join">Unjoin</string>
+    <string name="this_event_is_complete">This event is complete</string>
 </resources>

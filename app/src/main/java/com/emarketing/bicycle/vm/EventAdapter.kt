@@ -36,7 +36,7 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
         with(holder){
             name.text=event.name
             description.text=event.description
-            members.text=event.number_members
+            members.text=event.number_of_joining.toString()+"/"+event.number_members.toString()
             startDate.text=event.start_date
             endDate.text =event.end_date
             objectives.text = event.objectives
@@ -67,10 +67,16 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
                     join(false,event.id.toString(),holder,position)
                 }
             }else{
+                if(event.number_of_joining>=event.number_members)
+                    join.setBackgroundColor(R.color.greysh)
                 join.setText(R.string.join)
                 join.setOnClickListener {
-                    (context as BaseActivity).loading()
-                    join(true,event.id.toString(),holder,position)
+                    if(event.number_of_joining<event.number_members) {
+                        (context as BaseActivity).loading()
+                        join(true, event.id.toString(), holder, position)
+                    }else{
+                        (context as BaseActivity).showMessage(context.resources.getString(R.string.this_event_is_complete))
+                    }
                 }
             }
 
@@ -127,13 +133,18 @@ class EventAdapter(val context:Context, val materials:ArrayList<Event>) : Recycl
                 override fun onComplete() { }
                 override fun onSubscribe(d: Disposable) { }
                 override fun onNext(t: Response) {
-                  //  if (t.success){
+                    if (t.success){
                         (context as BaseActivity).stopLoading()
-                       // (context as BaseActivity).showMessage(t.message)
+                        (context as BaseActivity).showMessage(t.message)
                         materials[position].is_joined=join_unjoin
+                        if (join_unjoin){
+                            materials[position].number_of_joining++
+                        }else{
+                            materials[position].number_of_joining--
+                        }
                         notifyItemChanged(position)
                         notifyDataSetChanged()
-                 //   }
+                    }
                 }
                 override fun onError(e: Throwable) {
                     (context as BaseActivity).stopLoading()

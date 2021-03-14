@@ -12,7 +12,8 @@ data class Event (
     val objectives:String,
     val start_date:String,
     val end_date:String,
-    val number_members:String,
+    val number_members:Int,
+    var number_of_joining:Int,
     val user_id:String,
     var is_joined:Boolean
 ): Parcelable
